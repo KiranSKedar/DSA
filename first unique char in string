@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        unordered_map<char,int> m;
+        for(int i=0;i<s.length();i++){
+            m[s[i]]++;
+        }
+
+        for(int i=0;i<s.length();i++){
+            int temp=s[i];
+            auto itr=m.find(temp);
+            if(itr->second==1)
+            return i;
+        }
+        return -1;
+    }
+};
