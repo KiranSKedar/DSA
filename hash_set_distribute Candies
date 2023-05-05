@@ -1,0 +1,38 @@
+class Solution {
+public:
+    int distributeCandies(vector<int>& candyType) {
+        unordered_set<int>s;
+        for(int i=0;i<candyType.size();i++){
+            s.insert(candyType[i]);
+        }
+        int size=candyType.size()/2;
+        if(s.size()<=size)
+            return s.size();
+
+            return size;
+    }
+    
+    
+    
+};
+
+
+
+//Time Complexity - O(NlogN)
+    //Space Complexity - O(N)
+
+//Final Approach - 
+
+    int distributeCandies(vector<int>& candyType) {
+        int N = candyType.size();
+        unordered_map<int,int> track;
+        for(int index = 0; index < N; index++){
+            track[candyType[index]]++;
+        }
+        if(track.size()<=N/2)
+            return track.size();
+        return N/2;
+    }
+
+    //Time Complexity - O(N)
+    //Space Complexity - O(N)
