@@ -1,0 +1,28 @@
+class Solution {
+public:
+    string getHint(string secret, string guess) {
+        int n=secret.size();
+        vector<int>secret_freq(10,0);
+        vector<int>guess_freq(10,0);
+        int A=0,B=0;
+
+        for(int i=0;i<n;i++){
+            if(secret[i]==guess[i])
+                A++;
+            else{
+                secret_freq[secret[i]-'0']++;
+                guess_freq[guess[i]-'0']++;
+            }
+        }
+        for(int i=0;i<10;i++){
+            B+=min(secret_freq[i],guess_freq[i]);
+        }
+        string ans="";
+        ans=to_string(A) +"A" + to_string(B) +"B";
+        return ans;
+    }
+};
+
+
+//Time Complexity - O(N) + O(10), where N is the number of characters present in the Secret and Guess Strings.
+//Space Complexity - O(2*10) + O(2)
