@@ -15,4 +15,8 @@ int main()
         cout<<itr->first<<":"<<itr->second;
         cout<<endl;
     }
+
+
+umap.insert(make_pair("Richa",104));
+        
 }
