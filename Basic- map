@@ -1,0 +1,18 @@
+#include <iostream>
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    unordered_map<string,int>umap;
+    umap["Kiran"]=101;
+    umap["Radhika"]=102;
+    umap["Pooja"]=103;
+    
+    for(auto itr=umap.begin();itr!=umap.end();itr++){
+        cout<<itr->first<<":"<<itr->second;
+        cout<<endl;
+    }
+}
