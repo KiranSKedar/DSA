@@ -1,0 +1,63 @@
+https://leetcode.com/problems/unique-number-of-occurrences/submissions/
+
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        
+        unordered_map<int,int>umap;
+        
+        for(int i=0;i<arr.size();i++){
+            umap[arr[i]]++;
+}
+        
+        int f=0;
+        
+        unordered_set<int>s;
+        
+         for(auto itr=umap.begin();itr!=umap.end();itr++){
+	        
+	        int key=itr->first;
+	        int value=itr->second;
+                
+                if(s.find(value)==s.end()){
+                    s.insert(value);
+                }
+             else{
+                 f=1;
+             }
+	    }
+        
+        if(f==1)
+            return false;
+        
+        return true;
+	    
+
+    }
+};
+
+
+
+
+
+Approach 2 :
+
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        vector<int> vec(2001, 0);
+        
+        for(int &x : arr) {
+            vec[x + 1000]++;
+        }
+        
+        sort(begin(vec), end(vec));
+        
+        for(int i = 1; i<2001; i++) {
+            if(vec[i] != 0 && vec[i] == vec[i-1])
+                return false;
+        }
+        
+        
+        return true;
+    }
+};
