@@ -1,0 +1,33 @@
+https://leetcode.com/problems/partition-array-for-maximum-sum/submissions/
+
+https://www.youtube.com/watch?v=LvvIcZWtuoY
+
+
+class Solution {
+public:
+    int t[501];
+    int solve(int i,vector<int>& arr, int k,int n){
+        if(i>=n)
+            return 0;
+        if(t[i]!=-1)
+            return t[i];
+        int curr_max=-1;
+        int result=0;
+        for(int j=i;j<n && j-i+1<=k;j++){
+            curr_max=max(curr_max,arr[j]);
+            
+            result=max(result, curr_max*(j-i+1) + solve(j+1,arr,k,n));
+            
+            
+        }
+        return t[i]=result;
+        
+    }
+    int maxSumAfterPartitioning(vector<int>& arr, int k) {
+        memset(t,-1,sizeof(t));
+        int n=arr.size();
+        
+        return solve(0,arr,k,n);
+        
+    }
+};
