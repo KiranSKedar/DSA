@@ -1,0 +1,119 @@
+
+#include <iostream>
+
+using namespace std;
+struct node{
+    int data;
+    node *next;
+};
+void printList(node *head){
+    
+    while(head!=NULL)
+    {
+        cout<<head->data<<endl;
+        head=head->next;
+    }
+}
+
+
+void inserAtFirst(node **headref,int data){
+    
+    node *newNode=new node();
+    newNode->data=data;
+    newNode->next=*headref;
+    *headref=newNode;
+}
+
+
+void inserAfterNode(node *prevNode,int data){
+    node *newNode=new node();
+    newNode->data=data;
+    newNode->next=prevNode->next;
+    prevNode->next=newNode;
+}
+
+
+
+
+void insertAtEnd(node **headref,int data){
+    
+    node *newNode=new node();
+    newNode->data=data;
+    newNode->next=NULL;
+    
+    node *last=*headref;
+    
+    if(*headref==NULL){
+        *headref=newNode;
+        return;
+    }
+    
+    while(last->next!=NULL){
+        last=last->next;
+    }
+    last->next=newNode;
+}
+int main()
+{
+    node *head=new node();
+    node *first=new node();
+    node *second=new node();
+    
+    head->data=10;
+    head->next=first;
+    
+    
+    first->data=20;
+    first->next=second;
+    
+    second->data=30;
+    second->next=NULL;
+    
+    char ch;
+    int a;
+    
+    
+    do{
+        
+    cout<<"What would you like to do?";
+    cin>>ch;
+        switch(ch){
+            case 'a':
+            printList(head);
+            break;
+            
+            
+            case 'b':
+            int no;
+            cout<<"Enter the number u wanna insert"<<endl;
+            cin>>no;
+            inserAtFirst(&head,no);
+            break;
+            
+            case 'c':
+            int no1;
+            cout<<"Enter the number u wanna insert"<<endl;
+            cin>>no1;
+            inserAfterNode(head->next->next,no1);
+            break;
+            
+            
+            case 'd':
+            int no2;
+            cout<<"Enter the number u wanna insert"<<endl;
+            cin>>no2;
+            insertAtEnd(&head,no2);
+            break;
+            
+            default :
+            cout<<"Wrong choice";
+            
+        }
+        cout<<"Would you like to proceed?Press 1 if yes else press 0";
+        cin>>a;
+    }while(a==1);
+    
+    
+    
+    
+}
