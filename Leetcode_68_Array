@@ -1,0 +1,90 @@
+https://leetcode.com/problems/count-elements-with-maximum-frequency/submissions/
+
+
+class Solution {
+public:
+    int maxFrequencyElements(vector<int>& nums) {
+        
+        unordered_map<int,int>umap;
+        
+        for(int i=0;i<nums.size();i++){
+            
+            umap[nums[i]]++;
+        }
+        
+        vector<int>v;
+        for(auto itr=umap.begin();itr!=umap.end();itr++){
+            int key=itr->first;
+            int val=itr->second;
+            
+            v.push_back(val);
+        }
+        int max_ele=*max_element(v.begin(),v.end());
+        int ans=0;
+        
+        for(int i=0;i<v.size();i++){
+            if(v[i]==max_ele){
+                ans+=v[i];
+            }
+        }
+        
+        return ans;
+    }
+};
+
+
+
+
+##################################################################################################################
+
+
+class Solution {
+public:
+    int maxFrequencyElements(vector<int>& nums) {
+        
+        unordered_map<int,int>umap;
+        int max_freq=0;
+        
+        for(int i=0;i<nums.size();i++){
+            
+            umap[nums[i]]++;
+            max_freq=max(max_freq,umap[nums[i]]);
+        }
+        
+        
+        
+//         vector<int>v;
+//         for(auto itr=umap.begin();itr!=umap.end();itr++){
+//             int key=itr->first;
+//             int val=itr->second;
+            
+//             v.push_back(val);
+//         }
+//         int max_ele=*max_element(v.begin(),v.end());
+       int ans=0;
+        for(auto itr=umap.begin();itr!=umap.end();itr++){
+            int key=itr->first;
+             int val=itr->second;
+            
+            if(val==max_freq)
+                ans+=val;
+                
+            
+        }
+        // for(int i=0;i<v.size();i++){
+        //     if(v[i]==max_freq){
+        //         ans+=v[i];
+        //     }
+        // }
+        
+        return ans;
+    }
+};
+
+
+
+
+#####################################################################################
+
+
+
