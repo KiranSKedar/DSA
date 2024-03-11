@@ -1,0 +1,35 @@
+https://leetcode.com/problems/custom-sort-string/submissions/
+
+class Solution {
+public:
+    string customSortString(string order, string s) {
+        
+        string ans="";
+       map<char,int>umap;
+        for(auto x:s){
+            umap[x]++;
+        }
+        
+        for(auto x:order){
+            if(umap.find(x)!=umap.end()){
+                auto temp=umap.find(x);
+                int cnt=temp->second;
+                string st(cnt,x);
+                ans+=st;
+                umap.erase(x);
+            }
+        }
+        
+        
+        for(auto x:umap){
+            string s(x.second,x.first);
+            ans+=s;
+        }
+            
+            
+            return ans;
+        
+    
+        
+    }
+};
