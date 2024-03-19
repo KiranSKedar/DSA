@@ -1,0 +1,47 @@
+https://leetcode.com/problems/task-scheduler/submissions/
+
+
+
+class Solution {
+public:
+    int leastInterval(vector<char>& tasks, int p) {
+        unordered_map<char,int>umap;
+        
+        for(auto i:tasks)
+            umap[i]++;
+        
+        priority_queue<int>pq;
+        
+        for(auto i:umap)
+            pq.push(i.second);
+        
+        
+        int time=0;
+        while(!pq.empty()){
+            
+            vector<int>temp;
+            
+            for(int i=1;i<=p+1;i++){
+                if(!pq.empty()){
+                    temp.push_back(pq.top()-1);
+                    pq.pop();
+                }
+                
+            }
+            
+            for(auto freq:temp){
+                if(freq>0)
+                    pq.push(freq);
+            }
+            
+                if(pq.empty()){
+                    time+=temp.size();
+                }
+            else
+                time+=p+1;
+                
+            
+        }
+        return time;
+    }
+};
