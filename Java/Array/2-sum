@@ -50,7 +50,7 @@ public class TwoSum {
 			else if (arr[i] + arr[j] < target)
 				i++;
 			else if (arr[i] + arr[j] > target)
-				j++;
+				j--;
 		}
 
 	}
