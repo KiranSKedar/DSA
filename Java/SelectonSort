@@ -31,6 +31,14 @@ public class SelectionSort {
 			System.out.print(ele+" ");
 		}
 
+________________________________________________________________________________________________________________
+
+Time Complexity
+Case	Complexity
+Best	O(n²) ❌
+Average	O(n²)
+Worst	O(n²)
+
 	}
 
 }
