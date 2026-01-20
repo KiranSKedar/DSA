@@ -77,3 +77,11 @@ public class MoveZeroesToEnd {
 
 }
 
+
+_____________________________________________________________________________________________________________________________________________
+
+Time Complexity
+Case	Complexity
+Best	O(n) ✅ (already sorted + optimized with flag)
+Average	O(n²)
+Worst	O(n²)
