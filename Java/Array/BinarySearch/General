@@ -1,3 +1,5 @@
+TC - o(logn)
+
 package in.sp.binarySearch;
 
 public class BinarySearch {
