@@ -1,0 +1,14 @@
+https://leetcode.com/problems/maximum-count-of-positive-integer-and-negative-integer/description/
+
+class Solution {
+    public int maximumCount(int[] nums) {
+
+        int positive=(int)Arrays.stream(nums).filter(n->n>0).count();
+
+        int negative =(int) Arrays.stream(nums).filter(n->n<0).count();
+
+        return Math.max(positive,negative);
+        
+    }
+}
+
